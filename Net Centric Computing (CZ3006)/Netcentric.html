@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<!-- nochange.html
+     This document illustrates using the focus event
+     to prevent the user from changing a text field
+     -->
+<html xmlns = "http://www.w3.org/1999/xhtml">
+  <head> <title> The focus event </title>
+
+    <script type = "text/javascript">
+      <!--
+
+// The event handler function to compute the cost
+
+      function computeCost() {
+        var apples = document.getElementById("apples").value;
+        var oranges = document.getElementById("oranges").value;
+        var bananas = document.getElementById("bananas").value;
+
+// Compute the cost
+
+        document.getElementById("cost").value = 
+         totalCost = apples * 0.69 + oranges * 0.59 + bananas * 0.39;
+      }  //* end of computeCost
+      -->
+    </script>
+  </head>
+
+  <body>
+    <form action = "">
+      <h3> THE FRUIT STORE </h3>
+
+<!-- A bordered table for item orders -->
+
+      <table border = "border">
+
+<!-- First, the column headings --> 
+
+        <tr>
+          <th> Product Name </th>
+          <th> Price </th>
+          <th> Quantity </th>
+        </tr>
+
+<!-- Now, the table data entries -->
+
+        <tr>
+          <th> Apples </th>
+          <td> $0.69 </td>
+          <td> <input type = "text"  id = "apples"  
+                      size ="2" /> </td>
+        </tr>
+        <tr>
+          <th> Oranges </th>
+          <td> $0.59 </td>
+          <td> <input type = "text"  id = "oranges"  
+                size = "2" /> </td>
+        </tr> 
+        <tr>
+          <th> Bananas </th>
+          <td> $0.39 </td>
+          <td> <input type = "text"  id = "bananas"  
+                size = "2" /></td>
+        </tr>
+      </table>
+
+<!-- Button for precomputation of the total cost -->
+
+
+
+
+
+      <p>
+        <input type = "button"  value = "Total Cost" 
+               onclick = "computeCost();" />
+        <input type = "text"  size = "5"  id = "cost" 
+               onfocus = "this.blur();" />
+      </p>
+
+	  
+	  
+      <p>
+        <input type = "radio"  name = "PaymentButton"  value = "Visa"
+               onclick = "planeChoice(Visa)" />
+        Visa
+        <br />
+        <input type = "radio"  name = "PaymentButton"  value = "MasterCard"
+               onclick = "planeChoice(MasterCard)" />
+		MasterCard
+        <br />
+        <input type = "radio"  name = "PaymentButton"  value = "Discover"
+               onclick = "planeChoice(Discover)" />      
+        Discover
+        <br />
+
+      </p>
+	  
+	  
+	  
+	  
+	  
+	  
+	        <p>
+        <input type = "submit"  value = "Submit Order" /> 
+        <input type = "reset"  value = "Clear Order Form" />
+      </p>
+	  
+<!-- The submit and reset buttons -->
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+    </form>
+  </body>
+</html>

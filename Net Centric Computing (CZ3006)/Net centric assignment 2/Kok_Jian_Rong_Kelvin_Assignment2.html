@@ -1,0 +1,152 @@
+<?xml version = "1.0"  encoding = "utf-8" ?>
+<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Strict//EN"
+
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- nochange.html
+     This document illustrates using the focus event
+     to prevent the user from changing a text field
+     -->
+<html xmlns = "http://www.w3.org/1999/xhtml">
+  <head> <title> The Fruit Stall </title>
+
+    <script type = "text/javascript">
+      <!--
+
+// The event handler function to compute the cost
+
+
+      function computeCost() {
+	  
+	  
+        var apples = document.getElementById("apples").value;
+        var oranges = document.getElementById("oranges").value;
+        var bananas = document.getElementById("bananas").value;
+		var totalCost=apples * 0.69 + oranges * 0.59 + bananas * 0.39;
+		var totalCostRoundUp=totalCost.toFixed(2); //rounds the total amount of money to 2 d.p
+	 
+	 	document.getElementById("cost").value = totalCostRoundUp;
+		document.getElementById("submit").disabled = false;	//enables the submit button
+		//if user does not key in number, the submit button will be disabled in the 'if' condition
+		
+	    if(isNaN(totalCost))//if any of the text boxes contain non-digit values
+		{
+		alert("Please enter numbers only!");
+		document.getElementById("submit").disabled = true; //does not allow user to submit order unless a number is keyed in
+		}
+
+		
+// Compute the cost
+	
+		
+
+		
+      }  //* end of computeCost
+      -->
+	  
+	  	function validateForm() {
+		var apples = document.getElementById("apples").value;
+        var oranges = document.getElementById("oranges").value;
+        var bananas = document.getElementById("bananas").value;
+		var name = document.getElementById("name").value;
+		var cost= document.getElementById("cost").value;
+		
+		if(name=="")
+		{
+		alert("Please enter your name!");	
+		return false;
+		}
+		
+		if((apples =="" && oranges=="" && bananas=="") ||(cost==0.00))
+		{
+		alert("Please order at least 1 fruit!");		
+		return false; 
+		}
+}
+    </script>
+  </head>
+
+  <body>
+    <form action = "Kok_Jian_Rong_Kelvin_Assignment2.php"
+		  method ="post">
+      <h3> The Fruit Stall </h3>
+
+
+      <table border = "border">
+
+
+Name : <input type = "text"  id = "name" name="name"
+		size ="20" "/>
+        <tr>
+          <th> Product Name </th>
+          <th> Price </th>
+          <th> Quantity </th>
+        </tr>
+
+
+
+        <tr>
+          <th> Apples </th>
+          <td> $0.69 </td>
+          <td align = "center"> <input type = "text"  id = "apples"  name="apples"
+                      size ="3" onchange="computeCost()"/> </td>
+        </tr>
+        <tr>
+          <th> Oranges </th>
+          <td> $0.59 </td>
+          <td align = "center"> <input type = "text"  id = "oranges"  name="oranges"
+                size = "3" onchange="computeCost()"/> </td>
+        </tr> 
+        <tr>
+          <th> Bananas </th>
+          <td> $0.39 </td>
+          <td align = "center"> <input type = "text"  id = "bananas"  name="bananas"
+                size = "3" onchange="computeCost()"/></td>
+        </tr>
+      </table>
+
+      <p>
+			   Total cost :
+        <input type = "text"  size = "5"  id = "cost" name="cost"
+               onfocus = "this.blur();" />
+      </p>
+
+	  
+	  
+      <p>
+        <input type = "radio"  name = "payment"  value = "Visa" checked = "checked"/>
+        Visa
+        <br />
+		
+        <input type = "radio"  name = "payment"  value = "MC" />
+		MasterCard
+        <br />
+		
+        <input type = "radio"  name = "payment"  value = "Discover"/>      
+        Discover
+        <br />
+
+      </p>
+	  
+	  
+	  
+	  
+	  
+	  
+	  <p>
+        <input type = "submit"  value = "Submit Order" onclick="return validateForm();" id="submit" /> 
+        <input type = "reset"  value = "Clear Order Form" />
+      </p>
+	  
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+    </form>
+  </body>
+</html>
